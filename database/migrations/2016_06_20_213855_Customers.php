@@ -15,7 +15,7 @@ class Customers extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('phone');
+            $table->integer('phone');
             $table->rememberToken();
             $table->timestamps();
         });
