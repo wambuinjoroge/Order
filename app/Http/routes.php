@@ -15,12 +15,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index','CustomersController@index');
-Route::get('create','CustomersController@create');
-Route::post('store','CustomersController@store');
-Route::get('show','CustomersController@show');
-Route::post('edit/{id}','CustomersController@update');
-Route::get('destroy/{id}','CustomersController@destroy');
+Route::get('customers','CustomersController@index');
+Route::get('customers/create','CustomersController@create');
+Route::post('customers/store','CustomersController@store');
+Route::get('customers/show','CustomersController@show');
+Route::post('customers/edit/{id}','CustomersController@update');
+Route::get('customers/destroy/{id}','CustomersController@destroy');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('index','OrdersController@index');

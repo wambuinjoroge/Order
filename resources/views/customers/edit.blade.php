@@ -10,9 +10,8 @@
             <label for="exampleInputEmail1">Phone</label>
             <input type="text" class="form-control" name="email" value="{{$customer->email}}" placeholder="Phone">
         </div>
-
-        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <input type="hidden" name="id" value="{{$customer->id}}">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <input type="hidden" name="id" value="{{$customer->id}}">
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
