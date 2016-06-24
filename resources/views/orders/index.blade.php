@@ -1,21 +1,19 @@
 
-@extends("layouts.layout")
+@extends("layouts.master")
 @section("content")
 
     <table class="table">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Phone</th>
+            <th>Amount</th>
         </tr>
         </thead>
         <tbody>
 
 
-        @foreach($customers as $customer)
+        @foreach($orders as $order)
             <tr>
-                <td> {{$customer->name}}</td><
-                <td> {{$customer->phone}}</td>
+                <td> {{$order->amount}}</td><
             </tr>
 
         @endforeach

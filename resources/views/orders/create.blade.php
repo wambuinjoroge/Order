@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.master')
 @section('content')
 
     @if (count($errors) > 0)
@@ -11,17 +11,13 @@
         </div>
     @endif
     <h1>Create</h1>
-    <form method="post" action="{{url('customers/store')}}">
+    <form method="post" action="{{url('orders/store')}}">
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="text"  class="form-control" name="name" placeholder="Name">
+            <label for="exampleInputEmail1">Amount</label>
+            <input type="text"  class="form-control" name="amount" placeholder="amount">
         </div>
 
-        <div class="form-group">
-            <label for="exampleInputEmail1">Phone</label>
-            <input type="text"  class="form-control" name="phone" placeholder="Phone">
-        </div>
 
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
