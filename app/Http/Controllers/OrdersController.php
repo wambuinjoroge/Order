@@ -5,26 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests;
-use App\Customer;
+use App\Orders;
 
-class CustomersController extends Controller
+class OrdersController extends Controller
 {
     public function index(){
 
-        $customers=Customer::all();
+        $orders=Order::all();
 
-        return view('customers.index',compact('customers'));
+        return view('orders.index',compact('orders'));
 
     }
     public function create(){
-        return view('customers.create');
+        return view('orders.create');
     }
     public function store(Request $request){
         //print_r($request->all());
         //exit;
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'phone' => 'required',
+            'amount' => 'required',
+
         ]);
 
         if ($validator->fails()) {
@@ -33,21 +33,20 @@ class CustomersController extends Controller
                 ->withInput();
         }
 
-        $customer=new Customer();
+        $order=new Order();
 
-        $customer->name=$request->get('name');
-        $customer->phone=$request->get('phone');
-        $customer->save();
-        return redirect('customers');
+        $order->amount=$request->get('amount');
+        $order->save();
+        return redirect('orders');
 
     }
     public function show($id){
-        $customer=Customer::find($id);
-        return view("customers.show",compact("customer"));
+        $order=order::find($id);
+        return view("orders.show",compact("order"));
     }
     public function edit($id){
-        $customer=Customer::find($id);
-        return view('customers.edit',compact('customer'));
+        $order=Order::find($id);
+        return view('orders.edit',compact('order'));
     }
     public function update(Request $request,$id){
         $validator = Validator::make($request->all(), [
@@ -63,9 +62,8 @@ class CustomersController extends Controller
 
             $customer=Customer::find($request->get('id'));
 
-            $customer->name=$request->get('name');
-            $customer->phone=$request->get('phone');
-            $customer->password=$request->get('password');
+            $order->name=$request->get('name');
+
         }
 
     }
