@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests;
@@ -43,7 +44,9 @@ class CustomersController extends Controller
     }
     public function show($id){
         $customer=Customer::find($id);
-        return view("customers.show",compact("customer"));
+        $orders=Order::where('customer_id',$id)->get();
+
+        return view("customers.show",compact("customer","orders"));
     }
     public function edit($id){
         $customer=Customer::find($id);

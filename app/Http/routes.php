@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('customers','CustomersController@index');
 Route::get('customers/create','CustomersController@create');
 Route::post('customers/store','CustomersController@store');
-Route::get('customers/show','CustomersController@show');
+Route::get('customer/show/{id}','CustomersController@show');
 Route::post('customers/edit/{id}','CustomersController@update');
 Route::get('customers/destroy/{id}','CustomersController@destroy');
 
@@ -28,9 +28,8 @@ Route::get('customers/destroy/{id}','CustomersController@destroy');
 
 
 
-Route::get('orders','OrdersController@index');
-Route::get('orders/create','OrdersController@create');
-Route::post('orders/store','CustomersController@store');
-Route::get('orders/show','OrdersController@show');
+
+Route::get('orders/create/{customer_id}','OrdersController@create');
+Route::post('orders/store','OrdersController@store');
 Route::post('orders/edit/{id','OrdersController@update');
 Route::get('orders/destroy/{id}','OrdersController@destroy');

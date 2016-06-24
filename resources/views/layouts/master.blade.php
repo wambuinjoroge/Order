@@ -9,10 +9,9 @@
 <div class="container">
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{url('Orders') }}">Orders!!</a>
+           <h2>ORDERS</h2>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="{{ url('orders') }}">View All Orders</a></li>
             <li><a href="{{ url('orders/create') }}">Create an order</a></li>
         </ul>
     </nav>

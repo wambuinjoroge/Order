@@ -20,6 +20,7 @@
 
 
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <input type="hidden" name="customer_id" value="{{$customer_id}}">
 
         <button type="submit" class="btn btn-default">Submit</button>
 

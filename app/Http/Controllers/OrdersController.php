@@ -5,40 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests;
-use App\Orders;
+use App\Order;
 
 class OrdersController extends Controller
 {
     public function index(){
-
         $orders=Order::all();
-
         return view('orders.index',compact('orders'));
-
     }
-    public function create(){
-        return view('orders.create');
+    public function create($customer_id){
+        return view('orders.create',compact('customer_id'));
     }
     public function store(Request $request){
-        //print_r($request->all());
-        //exit;
         $validator = Validator::make($request->all(), [
             'amount' => 'required',
-
         ]);
-
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $order=new Order();
-
         $order->amount=$request->get('amount');
+        $order->customer_id=$request->get('customer_id');
         $order->save();
-        return redirect('orders');
-
+        return redirect('customer/show/'.$request->get('customer_id'));
     }
     public function show($id){
         $order=order::find($id);
@@ -50,9 +41,7 @@ class OrdersController extends Controller
     }
     public function update(Request $request,$id){
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'phone' => 'required',
-            'password'=>'password',
+            'amount' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -62,7 +51,7 @@ class OrdersController extends Controller
 
             $customer=Customer::find($request->get('id'));
 
-            $order->name=$request->get('name');
+            $order->amount=$request->get('amount');
 
         }
 

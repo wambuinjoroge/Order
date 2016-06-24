@@ -16,7 +16,6 @@ class Customers extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('phone');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

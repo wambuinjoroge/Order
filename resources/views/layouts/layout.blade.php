@@ -14,6 +14,7 @@
         <ul class="nav navbar-nav">
             <li><a href="{{ url('customers') }}">View All Customers</a></li>
             <li><a href="{{ url('customers/create') }}">Create a customer</a></li>
+
         </ul>
     </nav>
     @yield('content')

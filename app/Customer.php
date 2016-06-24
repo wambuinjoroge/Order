@@ -12,5 +12,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Customer extends Eloquent
 {
-
+    public function orders(){
+        return $this->hasMany("App\Order","primary_key");
+    }
 }
