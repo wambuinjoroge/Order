@@ -28,28 +28,9 @@ Route::get('customers/destroy/{id}','CustomersController@destroy');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('index','OrdersController@index');
-Route::get('create','OrdersController@create');
-Route::post('store','CustomersController@store');
-Route::get('show','OrdersController@show');
-Route::post('edit/{id','OrdersController@update');
-Route::get('destroy/{id}','OrdersController@destroy');
+Route::get('orders','OrdersController@index');
+Route::get('orders/create','OrdersController@create');
+Route::post('orders/store','CustomersController@store');
+Route::get('orders/show','OrdersController@show');
+Route::post('orders/edit/{id','OrdersController@update');
+Route::get('orders/destroy/{id}','OrdersController@destroy');

@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -19,7 +20,7 @@
 
         <div class="form-group">
             <label for="exampleInputEmail1">Phone</label>
-            <input type="text"  class="form-control" name="email" placeholder="Phone">
+            <input type="text"  class="form-control" name="phone" placeholder="Phone">
         </div>
 
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -27,4 +28,5 @@
         <button type="submit" class="btn btn-default">Submit</button>
 
     </form>
+
 @stop

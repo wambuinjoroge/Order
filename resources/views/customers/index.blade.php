@@ -2,7 +2,7 @@
 @extends("layouts.layout")
 @section("content")
 
- <table class="table-bordered table-stripped">
+ <table class="table">
      <thead>
       <tr>
        <th>Name</th>
@@ -10,14 +10,16 @@
       </tr>
      </thead>
      <tbody>
-     <tr>
-      <td>
+
+
        @foreach($customers as $customer)
-          <li> {{$customer->$name}}</li>
-          <li> {{$customer->$phone}}</li>
+        <tr>
+          <td> {{$customer->name}}</td><
+          <td> {{$customer->phone}}</td>
+        </tr>
+
        @endforeach
-     </td>
-    </tr>
+
      </tbody>
  </table>
 @stop

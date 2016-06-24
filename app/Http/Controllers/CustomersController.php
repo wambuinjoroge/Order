@@ -12,6 +12,7 @@ class CustomersController extends Controller
     public function index(){
 
         $customers=Customer::all();
+
         return view('customers.index',compact('customers'));
 
     }
@@ -19,6 +20,8 @@ class CustomersController extends Controller
         return view('customers.create');
     }
     public function store(Request $request){
+        //print_r($request->all());
+        //exit;
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required',
